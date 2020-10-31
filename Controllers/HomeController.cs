@@ -27,15 +27,9 @@ namespace MVC5Practice.Controllers
             return View();
         }
 
-        public ActionResult ActionName()
-        {
-
-            return View();
-        }
-
-
         public ActionResult Test()
         {
+            ViewBag.Message = "Sams Test.";
 
             return View();
         }
