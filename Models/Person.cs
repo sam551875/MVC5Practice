@@ -10,11 +10,11 @@ namespace MVC5Practice.Models
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage ="名字欄位為必填！")]
+        [Required(ErrorMessageResourceName ="Person_Name_Required",ErrorMessageResourceType =typeof(ResourceFile.Resource1))]
         public string Name { get; set; }
 
-        [Required]
-        [Range(1,10, ErrorMessage = "請輸入年紀以確保小於10歲")]
+        [Required(ErrorMessageResourceName = "Person_Age_Required", ErrorMessageResourceType = typeof(ResourceFile.Resource1))]
+        [Range(1,10, ErrorMessageResourceName = "Person_Age_Range", ErrorMessageResourceType = typeof(ResourceFile.Resource1))]
         public int age { get; set; }
     
     }
