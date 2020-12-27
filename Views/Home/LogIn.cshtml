@@ -31,14 +31,10 @@
 @*POST值到後台程式*@
 @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @class = "form-signin", @id = "LoginForm" }))
 {
-    <h2>LogIn</h2>
+    <h2>Login 登入</h2>
     <div class="col-md-4 col-md-push-1 animate-box" data-animate-effect="fadeInRight">
         <div class="form-wrap">
-            <div class="tab">
-                <ul class="tab-menu">
-                    @*登入*@
-                    <li class="gtco-second active"><a href="#" data-tab="login">登入</a></li>
-                </ul>
+            <div class="tab">                
                 <div class="tab-content">
                     <div class="tab-content-inner active" data-content="login">
                         <form action="#">
@@ -59,7 +55,12 @@
                                 <div class="col-md-12">
                                     @*密碼*@
                                     <label for="password">密碼</label>
-                                    @Html.TextBoxFor(m => m.password, new { @class = "form-control", @id = "password", @type = "password" })
+                                    @Html.TextBoxFor(m => m.password, new { @class = "form-control", 
+                                    @id = "password", 
+                                    @type = "password",
+                                    @onkeyup = "return ValidateCNWord($(this),value);",
+                                    @onblur = "return ValidateCNWord($(this),value);"
+                               })
                                 </div>
                             </div>
                             <!--<div class="code">
