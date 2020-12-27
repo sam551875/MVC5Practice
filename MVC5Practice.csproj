@@ -142,32 +142,22 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Functions\RSA_Tools.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Person.cs">
-      <DependentUpon>SQL67Server.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SQL67Server.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SQL67Server.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SQL67Server.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SQL67Server.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SQL67Server.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SQL67Server.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Home\BeginModel.cs" />
+    <Compile Include="Models\Home\MT103Format.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResourceFile\Resource1.Designer.cs">
+    <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Resource1.resx</DependentUpon>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -179,25 +169,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\SQL67Server.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SQL67Server.Context.cs</LastGenOutput>
-      <DependentUpon>SQL67Server.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\SQL67Server.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SQL67Server.edmx</DependentUpon>
-      <LastGenOutput>SQL67Server.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\SQL67Server.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SQL67Server.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\SQL67Server.edmx.diagram">
-      <DependentUpon>SQL67Server.edmx</DependentUpon>
-    </Content>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
@@ -231,9 +208,12 @@
     <Content Include="Views\Test\Edit.cshtml" />
     <Content Include="Views\Test\Details.cshtml" />
     <Content Include="Views\Test\Delete.cshtml" />
+    <Content Include="Views\Home\LogIn.cshtml" />
+    <Content Include="Views\Home\TxnPage1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -247,10 +227,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ResourceFile\Resource1.en-US.resx" />
-    <EmbeddedResource Include="ResourceFile\Resource1.resx">
+    <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

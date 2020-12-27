@@ -117,13 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Person_Name_Required" xml:space="preserve">
-    <value>Please enter youre Name!</value>
+  <data name="SQL_ConnectionString" xml:space="preserve">
+    <value>data source=203.64.129.67;initial catalog=Sam_MVC;persist security info=True;user id=Sam;MultipleActiveResultSets=True;</value>
   </data>
-  <data name="Person_Age_Required" xml:space="preserve">
-    <value>Please enter youre age!</value>
+  <data name="SQL_Password" xml:space="preserve">
+    <value />
   </data>
-  <data name="Person_Age_Range" xml:space="preserve">
-    <value>Please enter youre age(ranged 1 to 10)</value>
+  <data name="SQL_UserName" xml:space="preserve">
+    <value>sam</value>
   </data>
 </root>

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MVC5Practice.ResourceFile {
+namespace MVC5Practice.Properties {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace MVC5Practice.ResourceFile {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resource1 {
+    internal class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resource1() {
+        internal Resources() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace MVC5Practice.ResourceFile {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MVC5Practice.ResourceFile.Resource1", typeof(Resource1).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MVC5Practice.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,29 +61,29 @@ namespace MVC5Practice.ResourceFile {
         }
         
         /// <summary>
-        ///   查詢類似 請輸入年齡(範圍:1至10歲) 的當地語系化字串。
+        ///   查詢類似 data source=203.64.129.67;initial catalog=Sam_MVC;persist security info=True;user id=Sam;MultipleActiveResultSets=True; 的當地語系化字串。
         /// </summary>
-        internal static string Person_Age_Range {
+        internal static string SQL_ConnectionString {
             get {
-                return ResourceManager.GetString("Person_Age_Range", resourceCulture);
+                return ResourceManager.GetString("SQL_ConnectionString", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   查詢類似 請輸入年齡! 的當地語系化字串。
+        ///   查詢類似  的當地語系化字串。
         /// </summary>
-        internal static string Person_Age_Required {
+        internal static string SQL_Password {
             get {
-                return ResourceManager.GetString("Person_Age_Required", resourceCulture);
+                return ResourceManager.GetString("SQL_Password", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   查詢類似 請輸入名字！ 的當地語系化字串。
+        ///   查詢類似 sam 的當地語系化字串。
         /// </summary>
-        internal static string Person_Name_Required {
+        internal static string SQL_UserName {
             get {
-                return ResourceManager.GetString("Person_Name_Required", resourceCulture);
+                return ResourceManager.GetString("SQL_UserName", resourceCulture);
             }
         }
     }

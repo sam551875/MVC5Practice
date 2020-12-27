@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - 我的 ASP.NET 應用程式</title>
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -24,7 +24,12 @@
                     <li>@Html.ActionLink("首頁", "Index", "Home")</li>
                     <li>@Html.ActionLink("關於", "About", "Home")</li>
                     <li>@Html.ActionLink("連絡人", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("練習", "Test", "Home")</li>
+                    <li>@Html.ActionLink("登入", "LogIn", "Home")</li>
                 </ul>
+                <div style="float:right;margin-top:auto; margin-bottom:auto;">
+                    <p style="color:aliceblue;">@ViewBag.UserName 歡迎回來</p>
+                </div>
             </div>
         </div>
     </div>

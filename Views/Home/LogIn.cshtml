@@ -1,0 +1,87 @@
+﻿@model MVC5Practice.Models.Home.BeginModel
+
+@{
+    ViewBag.Title = "LogIn 登入";
+}
+<script>
+    // 重置圖形驗證碼
+    //function ProduceCaptcha() {
+    //    document.getElementById("code").src = '/Home/GetValidateCode/' + new Date().getMilliseconds();
+    //}
+    function comfirmCheck() {
+        if ($('#username').val() == "") {
+            alert("Username is empty!");
+            return false;
+        }
+        if ($('#password').val() == "") {
+            alert("Password is empty!");
+            return false;
+        }
+        LoginForm.submit();
+    }
+    // // 驗證 - 限輸英數字
+    function ValidateCNWord(e, value) {
+        if (/[\W]/g.test(value)) {
+            value = value.replace(/[\W]/g, '')
+            $(e).val(value);
+        }
+        return false;
+    }
+</script>
+@*POST值到後台程式*@
+@using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @class = "form-signin", @id = "LoginForm" }))
+{
+    <h2>LogIn</h2>
+    <div class="col-md-4 col-md-push-1 animate-box" data-animate-effect="fadeInRight">
+        <div class="form-wrap">
+            <div class="tab">
+                <ul class="tab-menu">
+                    @*登入*@
+                    <li class="gtco-second active"><a href="#" data-tab="login">登入</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-content-inner active" data-content="login">
+                        <form action="#">
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    @*帳號*@
+                                    <label for="username">帳號</label>
+                                    @Html.TextBoxFor(m => m.username, new
+                                    {
+                                        @class = "form-control",
+                                        @id = "username",
+                                        @onkeyup = "return ValidateCNWord($(this),value);",
+                                        onblur = "return ValidateCNWord($(this),value);"
+                               })
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    @*密碼*@
+                                    <label for="password">密碼</label>
+                                    @Html.TextBoxFor(m => m.password, new { @class = "form-control", @id = "password", @type = "password" })
+                                </div>
+                            </div>
+                            <!--<div class="code">
+                                <img id="code" src="/Home/GetValidateCode/" />-->
+                            @*重置*@
+                            <!--<button type="button" onclick="ProduceCaptcha()" style="border:none;background:none;"><img src="https://img.icons8.com/windows/32/000000/refresh.png" /></button>
+                                <input type="text" name="code" placeholder="請輸入....." />
+                            </div>-->
+                            @*<label style="color: red;">@ViewBag.Result</label>*@
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    @*確認登入*@
+                                    <button type="button" id="comfirmLoad" onclick="comfirmCheck()" class="btn btn-primary">確認登入</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
