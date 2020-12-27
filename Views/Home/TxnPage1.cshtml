@@ -4,6 +4,17 @@
     ViewBag.Title = "TxnPage1";
 }
 
+<script>
+    // // 驗證 - 限輸英數字
+    function ValidateCNWord(e, value) {
+        if (/[\W]/g.test(value)) {
+            value = value.replace(/[\W]/g, '')
+            $(e).val(value);
+        }
+        return false;
+    }
+</script>
+
 <h2>TxnPage1</h2>
 
 
@@ -16,7 +27,8 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.SendersReference, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.SendersReference, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">發訊行號碼</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.SendersReference, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.SendersReference, "", new { @class = "text-danger" })
@@ -24,7 +36,8 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TimeIndication, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.TimeIndication, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">時間指示</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.TimeIndication, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.TimeIndication, "", new { @class = "text-danger" })
@@ -32,7 +45,8 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.BankOprationCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.BankOprationCode, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">銀行作業代號</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.BankOprationCode, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.BankOprationCode, "", new { @class = "text-danger" })
@@ -40,7 +54,8 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.InstructionCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.InstructionCode, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">指示代號</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.InstructionCode, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.InstructionCode, "", new { @class = "text-danger" })
@@ -48,7 +63,8 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TransactionTypeCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.TransactionTypeCode, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">交易型態代號</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.TransactionTypeCode, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.TransactionTypeCode, "", new { @class = "text-danger" })
@@ -56,7 +72,8 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ValueDate_CurrencyCode_Amount, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.ValueDate_CurrencyCode_Amount, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">生效日、幣別碼、金額、銀行間清算金額</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ValueDate_CurrencyCode_Amount, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ValueDate_CurrencyCode_Amount, "", new { @class = "text-danger" })
@@ -64,7 +81,8 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Currency_InstructedAmount, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.Currency_InstructedAmount, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">幣別代碼、指示之金額</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Currency_InstructedAmount, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Currency_InstructedAmount, "", new { @class = "text-danger" })
@@ -72,7 +90,8 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ExchangeRate, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.ExchangeRate, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">匯率</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ExchangeRate, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ExchangeRate, "", new { @class = "text-danger" })
@@ -80,7 +99,8 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.OrderingCustomer, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.OrderingCustomer, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">匯款申請人</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.OrderingCustomer, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.OrderingCustomer, "", new { @class = "text-danger" })
@@ -88,7 +108,8 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.SendingInstitution, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.SendingInstitution, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">發訊銀行機構</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.SendingInstitution, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.SendingInstitution, "", new { @class = "text-danger" })
@@ -96,7 +117,8 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.OrderingInstitution, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.OrderingInstitution, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">匯款申請機構</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.OrderingInstitution, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.OrderingInstitution, "", new { @class = "text-danger" })
@@ -104,7 +126,8 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.SendersCorrespondent, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.SendersCorrespondent, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">發訊行之通匯行</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.SendersCorrespondent, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.SendersCorrespondent, "", new { @class = "text-danger" })
@@ -112,7 +135,8 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ReceiversCorrespondent, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.ReceiversCorrespondent, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">收訊行之通匯行</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ReceiversCorrespondent, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ReceiversCorrespondent, "", new { @class = "text-danger" })
@@ -120,7 +144,8 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ThirdReimbursementInstitution, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.ThirdReimbursementInstitution, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">第三補償機構</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ThirdReimbursementInstitution, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ThirdReimbursementInstitution, "", new { @class = "text-danger" })
@@ -128,7 +153,8 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.IntermediaryInstitution, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.IntermediaryInstitution, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">中間銀行</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.IntermediaryInstitution, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.IntermediaryInstitution, "", new { @class = "text-danger" })
@@ -136,7 +162,8 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.AccountWithInstitution, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.AccountWithInstitution, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">設帳銀行</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.AccountWithInstitution, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.AccountWithInstitution, "", new { @class = "text-danger" })
@@ -144,7 +171,8 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.BeneficiaryCustomer, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.BeneficiaryCustomer, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">受益顧客</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.BeneficiaryCustomer, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.BeneficiaryCustomer, "", new { @class = "text-danger" })
@@ -152,7 +180,8 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.RemittanceInformation, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.RemittanceInformation, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">付款明細</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.RemittanceInformation, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.RemittanceInformation, "", new { @class = "text-danger" })
@@ -160,7 +189,8 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.DetailsofCharges, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.DetailsofCharges, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">收費明細(對象)</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.DetailsofCharges, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.DetailsofCharges, "", new { @class = "text-danger" })
@@ -168,7 +198,8 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.SendersCharges, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.SendersCharges, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">發訊行之費用</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.SendersCharges, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.SendersCharges, "", new { @class = "text-danger" })
@@ -176,7 +207,8 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ReceiversCharges, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.ReceiversCharges, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">收訊行之費用</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ReceiversCharges, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ReceiversCharges, "", new { @class = "text-danger" })
@@ -184,7 +216,8 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.SendertoReceiverInformation, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.SendertoReceiverInformation, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">發訊行予收訊行之訊息</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.SendertoReceiverInformation, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.SendertoReceiverInformation, "", new { @class = "text-danger" })
@@ -192,7 +225,8 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.RegulatoryReporting, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.RegulatoryReporting, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">申報之規定</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.RegulatoryReporting, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.RegulatoryReporting, "", new { @class = "text-danger" })
