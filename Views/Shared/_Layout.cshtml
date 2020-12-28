@@ -29,7 +29,7 @@
                     <li>@Html.ActionLink("MT103資料提交", "TxnPage1", "Home")</li>
                 </ul>
                 <div style="float:right;margin-top:auto; margin-bottom:auto;">
-                    <p style="color:aliceblue;">@ViewBag.UserName @ViewBag.Welcome</p>
+                    <p style="color:aliceblue;">@Session["UserName"] @ViewBag.Welcome</p>
                 </div>
             </div>
         </div>

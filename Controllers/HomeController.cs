@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MVC5Practice.Common.Common;
 using MVC5Practice.Models.Home;
+
 
 namespace MVC5Practice.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public ActionResult Index()
         {
@@ -114,7 +116,7 @@ namespace MVC5Practice.Controllers
                     return RedirectToAction("TxnPage1", "Home");
                 }
                 SetTxnSession("TxnPage1", model);
-                return RedirectToAction("TxnPage2", "Home", model);
+                return RedirectToAction("Index", "Home", model);
             }
             catch
             {
