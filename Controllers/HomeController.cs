@@ -105,18 +105,19 @@ namespace MVC5Practice.Controllers
         {
             try
             {
-                if(
-                    model.SendersReference == "" || model.TimeIndication == "" || model.BankOprationCode == "" || model.InstructionCode == "" || model.TransactionTypeCode == "" ||
-                    model.ValueDate_CurrencyCode_Amount == "" || model.Currency_InstructedAmount == "" || model.ExchangeRate == "" || model.OrderingCustomer == "" || model.SendingInstitution == "" ||
-                    model.OrderingInstitution == "" || model.SendersCorrespondent == "" || model.ReceiversCorrespondent == "" || model.ThirdReimbursementInstitution == "" || model.IntermediaryInstitution == "" ||
-                    model.AccountWithInstitution == "" || model.BeneficiaryCustomer == "" || model.RemittanceInformation == "" || model.DetailsofCharges == "" || model.SendersCharges == "" ||
-                    model.ReceiversCharges == "" || model.SendertoReceiverInformation == "" || model.RegulatoryReporting == ""
-                )
-                {
-                    return RedirectToAction("TxnPage1", "Home");
-                }
-                SetTxnSession("TxnPage1", model);
-                return RedirectToAction("Index", "Home", model);
+                //if(
+                //    model.SendersReference == "" || model.TimeIndication == "" || model.BankOprationCode == "" || model.InstructionCode == "" || model.TransactionTypeCode == "" ||
+                //    model.ValueDate_CurrencyCode_Amount == "" || model.Currency_InstructedAmount == "" || model.ExchangeRate == "" || model.OrderingCustomer == "" || model.SendingInstitution == "" ||
+                //    model.OrderingInstitution == "" || model.SendersCorrespondent == "" || model.ReceiversCorrespondent == "" || model.ThirdReimbursementInstitution == "" || model.IntermediaryInstitution == "" ||
+                //    model.AccountWithInstitution == "" || model.BeneficiaryCustomer == "" || model.RemittanceInformation == "" || model.DetailsofCharges == "" || model.SendersCharges == "" ||
+                //    model.ReceiversCharges == "" || model.SendertoReceiverInformation == "" || model.RegulatoryReporting == ""
+                //)
+                //{
+                //    return RedirectToAction("TxnPage1", "Home");
+                //}
+                //SetTxnSession("TxnPage1", model);
+                //return RedirectToAction("Index", "Home", model);
+                return RedirectToAction("TxnPage1", "Home");
             }
             catch
             {
@@ -146,15 +147,8 @@ namespace MVC5Practice.Controllers
             ViewBag.Welcome = "";
             HttpContext.Session.Remove("UserName");
         }
-        private string _TxnSession = "Sam";
-        protected object GetTxnSession(string key)
-        {
-            return Session[_TxnSession + "_" + key];
-        }
-        protected void SetTxnSession(string key, object obj)
-        {
-            Session[_TxnSession + "_" + key] = obj;
-        }
+        
+        
 
     }
 }
