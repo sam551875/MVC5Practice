@@ -23,11 +23,11 @@ function Validate_13C(value) {
         return false;
     }
 
-    if (checkNumber(time1) != true) {
+    if (checkNumber(time1, 4) != true) {
         return false;
     }
 
-    if (checkNumber(time2) != true) {
+    if (checkNumber(time2, 4) != true) {
         return false;
     }
 
@@ -98,10 +98,6 @@ function Validate_32A(value) {
     var Currency = value.substring(6, 9);
     var Amount = value.substring(9);
 
-    console.log(Date);
-    console.log(Currency);
-    console.log(Amount);
-
     if (!checkDate_6n(Date)) {
         console.log('Date error.');
         return false;
@@ -117,10 +113,32 @@ function Validate_32A(value) {
         return false;
     }
 
-
     return true;
 }
 
+//Field 33B: Currency/Instructed Amount
+function Validate_33B(value) {
+
+    var Currency = value.substring(0, 3);
+    var Amount = value.substring(3);
+
+    if (!checkCurrency(Currency)) {
+        console.log('Currency error.');
+        return false;
+    }
+    console.log(Amount);
+    if (Amount.length > 15) {
+        console.log('Amount error.');
+        return false;
+    }
+    if (!checkAmount(Amount)) {
+        console.log('Amount Format error.');
+        return false;
+    }
+    console.log(checkAmount(Amount));
+
+    return true;
+}
 //判斷字串是否為數字//判斷正整數/[1−9] [0−9]∗]∗/
 /**
 * 判斷字串是否為數字
@@ -128,9 +146,12 @@ function Validate_32A(value) {
 * @param {Number} str
 * @param {Number} num
 */
-function checkNumber(str) {
-    var re = /\d{4,}/;    
-    //var re = new RegExp('\d{' + num +',}');
+function checkNumber(str, num) {
+    //var re = /\d{4,}/;
+    var temp = '\\d{' + num + ',}';     // 反斜線"\"是特殊字元，在字串格式中需採用"\\"來儲存。
+    console.log(temp);
+    //var re = new RegExp('\d{' + num + ',}');
+    var re = new RegExp(temp);
     if (!re.test(str)) {
         return false;
     }
@@ -166,8 +187,8 @@ function checkDate_6n(str) {
 }
 
 function checkCurrency(str) {
-    var Ccy_arr = []; //這行非必要只是測試把xml內容塞入陣列
-    var tmpOptionStr = '';
+    var flag = "N";
+
     $.ajax({
         url: '../../ISO4217_Currency.xml',
         type: 'GET',
@@ -177,26 +198,40 @@ function checkCurrency(str) {
         error: function (xml) {
             alert('讀取xml錯誤' + xml); //當xml讀取失敗
         },
-        //success: function (returnedXMLResponse) {
-        //    $('CcyNtry', returnedXMLResponse).each(function () {
-        //        Ccy.push($('Ccy', this).text()); //這行非必要只是測試把xml內容塞入陣列
-        //    });
         success: function (xml) {
+
             $(xml).find('CcyNtry').each(function (i) {  //取得xml父節點
 
                 var total = $(xml).find('CcyNtry').length;//xml的總筆數
                 var Ccy = $(this).children('Ccy').text(); //取得子節點中的Ccy資料
-                Ccy_arr.push(Ccy);
+
+                if (Ccy == str) {
+                    flag = "Y";
+                }
             }
             );
         }
     })
 
-    if (Ccy_arr.indexOf(str) == -1) {
+    if (flag != "Y") {
         return false;
     }
 
     return true;
+}
+
+function checkAmount(str) {
+    //var re = /\d+(,\d+)/;
+    //var re = /(^\d+$)/;
+    //var re = /\d+(\,\d+)|(\d+)/;
+    //var re = /(^\d+,\d+$)|((^[1-9]+$)|(^[1-9]+,\d+$))/;       //控卡,位置，但不能控卡第一個數字是0
+    var re = /(^\d+,\d+$)|(^[1-9]+\d+$)/;       //控卡,位置，但不能控卡第一個數字是0
+
+    if (!re.test(str)) {
+        return false;
+    }
+    return true;
+
 }
 
 /**

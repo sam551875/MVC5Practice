@@ -201,6 +201,18 @@
                 return false;
             }
         }
+        if (Currency_InstructedAmount != "") {
+            formatConfirm = "1";
+
+            if (!Validate_33B(Currency_InstructedAmount)) {
+                formatConfirm = "0";
+            }
+
+            if (formatConfirm == "0") {
+                alert("33B FormatError!");
+                return false;
+            }
+        }
         
 
         alert("資料提交成功!");
