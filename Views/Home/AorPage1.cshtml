@@ -1,0 +1,248 @@
+﻿@model MVC5Practice.Models.Home.ACKB_AOR
+
+@{
+    ViewBag.Title = "AorPage1";
+}
+
+<h2>匯出匯款申請書 Application for outward remittance</h2>
+
+@using (Html.BeginForm("AorPage1", "Home", FormMethod.Post, new { @class = "form-signin", @id = "AorPage1" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">            
+            <label class="control-label col-md-2">F32A 匯款幣別及金額</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.F32A, new
+                {
+                    @class = "form-control",
+                    @id = "F32A",
+               @onkeyup = "return ValidateCNWord($(this),value);",
+               @onblur = "return ValidateCNWord($(this),value);"
+           })
+            </div>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">F50 申請人 Applicant</div>
+            <br />
+            <div class="form-group">
+                <label class="control-label col-md-2">中文名</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.F50_ChineseName, new
+                    {
+                        @class = "form-control",
+                        @id = "F50_ChineseName",
+                   @onkeyup = "return ValidateCNWord($(this),value);",
+                   @onblur = "return ValidateCNWord($(this),value);"
+               })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">英文名</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.F50_EnglishName, new
+                    {
+                        @class = "form-control",
+                        @id = "F50_EnglishName",
+                   @onkeyup = "return ValidateCNWord($(this),value);",
+                   @onblur = "return ValidateCNWord($(this),value);"
+               })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">證號/統編</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.F50_IdNo, new
+                    {
+                        @class = "form-control",
+                        @id = "F50_IdNo",
+                   @onkeyup = "return ValidateCNWord($(this),value);",
+                   @onblur = "return ValidateCNWord($(this),value);"
+               })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">電話</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.F50_Tel, new
+                    {
+                        @class = "form-control",
+                        @id = "F50_Tel",
+                   @onkeyup = "return ValidateCNWord($(this),value);",
+                   @onblur = "return ValidateCNWord($(this),value);"
+               })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">地址</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.F50_Address, new
+                    {
+                        @class = "form-control",
+                        @id = "F50_Address",
+                   @onkeyup = "return ValidateCNWord($(this),value);",
+                   @onblur = "return ValidateCNWord($(this),value);"
+               })
+                </div>
+            </div>
+        </div>
+        
+        <div class="panel panel-primary">
+            <div class="panel-heading">F59 受款人 Beneficiary</div>
+            <br />
+            <div class="form-group">
+                <label class="control-label col-md-2">帳號</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.F59_AccNo_IbanCode, new
+                    {
+                        @class = "form-control",
+                        @id = "F59_AccNo_IbanCode",
+                   @onkeyup = "return ValidateCNWord($(this),value);",
+                   @onblur = "return ValidateCNWord($(this),value);"
+               })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">戶名</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.F59_EnglishName, new
+                    {
+                        @class = "form-control",
+                        @id = "F59_EnglishName",
+                   @onkeyup = "return ValidateCNWord($(this),value);",
+                   @onblur = "return ValidateCNWord($(this),value);"
+               })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">地址</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.F59_Address, new
+                    {
+                        @class = "form-control",
+                        @id = "F59_Address",
+                   @onkeyup = "return ValidateCNWord($(this),value);",
+                   @onblur = "return ValidateCNWord($(this),value);"
+               })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">電話</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.F59_Tel, new
+                    {
+                        @class = "form-control",
+                        @id = "F59_Tel",
+                   @onkeyup = "return ValidateCNWord($(this),value);",
+                   @onblur = "return ValidateCNWord($(this),value);"
+               })
+                </div>
+            </div>
+        </div>
+        
+        <div class="panel panel-primary">
+            <div class="panel-heading">F57 受款銀行 Beneficiary Bank</div>
+            <br />
+            <div class="form-group">
+                <label class="control-label col-md-2">銀行名稱及分行別</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.F57_BankNameBranchInformation, new
+                    {
+                        @class = "form-control",
+                        @id = "F57_BankNameBranchInformation",
+                   @onkeyup = "return ValidateCNWord($(this),value);",
+                   @onblur = "return ValidateCNWord($(this),value);"
+               })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">銀行代碼</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.F57_SwiftCode_CnapsNo_AbaNo, new
+                    {
+                        @class = "form-control",
+                        @id = "F57_SwiftCode_CnapsNo_AbaNo",
+                   @onkeyup = "return ValidateCNWord($(this),value);",
+                   @onblur = "return ValidateCNWord($(this),value);"
+               })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">地址</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.F57_Address, new
+                    {
+                        @class = "form-control",
+                        @id = "F57_Address",
+                   @onkeyup = "return ValidateCNWord($(this),value);",
+                   @onblur = "return ValidateCNWord($(this),value);"
+               })
+                </div>
+            </div>
+        </div>        
+
+        <div class="form-group">            
+            <label class="control-label col-md-2">F56 中間銀行</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.F56A, new
+                {
+                    @class = "form-control",
+                    @id = "F56A",
+               @onkeyup = "return ValidateCNWord($(this),value);",
+               @onblur = "return ValidateCNWord($(this),value);"
+           })
+            </div>
+        </div>
+
+        <div class="form-group">            
+            <label class="control-label col-md-2">F70 匯款明細</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.F70, new
+                {
+                    @class = "form-control",
+                    @id = "F70",
+               @onkeyup = "return ValidateCNWord($(this),value);",
+               @onblur = "return ValidateCNWord($(this),value);"
+           })
+            </div>
+        </div>
+
+        <div class="form-group">            
+            <label class="control-label col-md-2">F71 匯款銀行費用</label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.F71A, (IEnumerable<SelectListItem>)ViewBag.SelectCharges, new { @class = "form-control", @id = "F71A" })
+            </div>
+        </div>
+
+        <div class="form-group">            
+            <label class="control-label col-md-2">付款方式</label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.PaymentMethod, (IEnumerable<SelectListItem>)ViewBag.SelectPayment, new { @class = "form-control", @id = "PaymentMethod" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="button" class="btn btn-default">資料提交</button>
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

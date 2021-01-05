@@ -125,6 +125,48 @@ namespace MVC5Practice.Controllers
             }
             
         }
+        public ActionResult AorPage1()
+        {
+            if (isLogged() == false)
+            {
+                return RedirectToAction("Login", "Home");
+            }
+
+            ShowLogerInfo();
+
+            try
+            {
+                var SelectCharges = new List<SelectListItem>()
+                {
+                    new SelectListItem {Text="---選擇匯款銀行費用方式---", Value = ""},
+                    new SelectListItem {Text="一般匯款 SHA", Value = "A"},
+                    new SelectListItem {Text="全額到行", Value = "B"},
+                    new SelectListItem {Text="全額到戶", Value = "C"}
+                };
+
+                var SelectPayment = new List<SelectListItem>()
+                {
+                    new SelectListItem {Text="---選擇付款方式---", Value = ""},
+                    new SelectListItem {Text="臺/外幣現鈔", Value = "Cash"},
+                    new SelectListItem {Text="其他", Value = "Other"},
+                    new SelectListItem {Text="臺/外幣存款扣帳", Value = "Debit"}
+                };
+
+                SelectCharges.Where(q => q.Value == "").First().Selected = true;
+                SelectPayment.Where(q => q.Value == "").First().Selected = true;
+                ViewBag.SelectCharges = SelectCharges;
+                ViewBag.SelectPayment = SelectPayment;
+
+                ViewBag.Message = "AorPage1";
+                return View();
+            }
+            catch
+            {
+                return View("Error");
+            }
+
+            
+        }
 
 
         //--------------------------方法集暫時區塊------------------------------//

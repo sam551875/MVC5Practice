@@ -146,6 +146,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Home\ACKB_AOR.cs" />
     <Compile Include="Models\Home\BeginModel.cs" />
     <Compile Include="Models\Home\MT103Format.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -212,6 +213,7 @@
     <Content Include="Views\Test\Delete.cshtml" />
     <Content Include="Views\Home\LogIn.cshtml" />
     <Content Include="Views\Home\TxnPage1.cshtml" />
+    <Content Include="Views\Home\AorPage1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
