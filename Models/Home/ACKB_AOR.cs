@@ -13,7 +13,7 @@ namespace MVC5Practice.Models.Home
         //Field 50 Ordering customer 申請人
         public string F50A { get; set; }
         public string F50K { get; set; }
-        public string F50_ChineseName { get; set; }
+        public string F50_Account { get; set; }
         public string F50_EnglishName { get; set; }
         public string F50_IdNo { get; set; }
         public string F50_Tel { get; set; }

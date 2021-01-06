@@ -136,12 +136,19 @@ namespace MVC5Practice.Controllers
 
             try
             {
+                var SelectF50 = new List<SelectListItem>()
+                {
+                    new SelectListItem {Text="F50A", Value = "Option A"},
+                    new SelectListItem {Text="F50F", Value = "Option F"},
+                    new SelectListItem {Text="F50K", Value = "Option K"}
+                };
+
                 var SelectCharges = new List<SelectListItem>()
                 {
                     new SelectListItem {Text="---選擇匯款銀行費用方式---", Value = ""},
-                    new SelectListItem {Text="一般匯款 SHA", Value = "A"},
-                    new SelectListItem {Text="全額到行", Value = "B"},
-                    new SelectListItem {Text="全額到戶", Value = "C"}
+                    new SelectListItem {Text="一般匯款 SHA", Value = "SHA"},
+                    new SelectListItem {Text="全額到行", Value = "OUR"},
+                    new SelectListItem {Text="全額到戶", Value = "BEN"}
                 };
 
                 var SelectPayment = new List<SelectListItem>()
@@ -152,8 +159,10 @@ namespace MVC5Practice.Controllers
                     new SelectListItem {Text="臺/外幣存款扣帳", Value = "Debit"}
                 };
 
+                SelectF50.Where(q => q.Value == "Option A").First().Selected = true;
                 SelectCharges.Where(q => q.Value == "").First().Selected = true;
                 SelectPayment.Where(q => q.Value == "").First().Selected = true;
+                ViewBag.SelectF50 = SelectF50;
                 ViewBag.SelectCharges = SelectCharges;
                 ViewBag.SelectPayment = SelectPayment;
 
