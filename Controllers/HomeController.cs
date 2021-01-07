@@ -142,29 +142,32 @@ namespace MVC5Practice.Controllers
                     new SelectListItem {Text="F50F", Value = "Option F"},
                     new SelectListItem {Text="F50K", Value = "Option K"}
                 };
-
-                var SelectCharges = new List<SelectListItem>()
+                var SelectF52 = new List<SelectListItem>()
                 {
-                    new SelectListItem {Text="---選擇匯款銀行費用方式---", Value = ""},
-                    new SelectListItem {Text="一般匯款 SHA", Value = "SHA"},
-                    new SelectListItem {Text="全額到行", Value = "OUR"},
-                    new SelectListItem {Text="全額到戶", Value = "BEN"}
+                    new SelectListItem {Text="F52A", Value = "Option A"},
+                    new SelectListItem {Text="F52D", Value = "Option D"}
                 };
-
-                var SelectPayment = new List<SelectListItem>()
+                var SelectF53 = new List<SelectListItem>()
                 {
-                    new SelectListItem {Text="---選擇付款方式---", Value = ""},
-                    new SelectListItem {Text="臺/外幣現鈔", Value = "Cash"},
-                    new SelectListItem {Text="其他", Value = "Other"},
-                    new SelectListItem {Text="臺/外幣存款扣帳", Value = "Debit"}
+                    new SelectListItem {Text="F53A", Value = "Option A"},
+                    new SelectListItem {Text="F53B", Value = "Option B"},
+                    new SelectListItem {Text="F53D", Value = "Option D"}
+                };
+                var SelectF54 = new List<SelectListItem>()
+                {
+                    new SelectListItem {Text="F54A", Value = "Option A"},
+                    new SelectListItem {Text="F54B", Value = "Option B"},
+                    new SelectListItem {Text="F54D", Value = "Option D"}
                 };
 
                 SelectF50.Where(q => q.Value == "Option A").First().Selected = true;
-                SelectCharges.Where(q => q.Value == "").First().Selected = true;
-                SelectPayment.Where(q => q.Value == "").First().Selected = true;
+                SelectF52.Where(q => q.Value == "Option A").First().Selected = true;
+                SelectF53.Where(q => q.Value == "Option A").First().Selected = true;
+                SelectF54.Where(q => q.Value == "Option A").First().Selected = true;
                 ViewBag.SelectF50 = SelectF50;
-                ViewBag.SelectCharges = SelectCharges;
-                ViewBag.SelectPayment = SelectPayment;
+                ViewBag.SelectF52 = SelectF52;
+                ViewBag.SelectF53 = SelectF53;
+                ViewBag.SelectF54 = SelectF54;
 
                 ViewBag.Message = "AorPage1";
                 return View();

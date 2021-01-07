@@ -1,39 +1,117 @@
-﻿@model MVC5Practice.Models.Home.ACKB_AOR
+﻿@model MVC5Practice.Models.Home.MT103Format
 
 @{
     ViewBag.Title = "AorPage1";
 }
 <script type="text/javascript">
 
-    //$("#F50A").change(function () {
-    function F50A_changed() {
-        var F50A = $("#F50A").val();
-        switch (F50A) {
+    function F50_changed() {
+        var F50_ddl = $("#F50_ddl").val();
+        switch (F50_ddl) {
             case "Option A":
-                $("#d_F50_Account").show();
-                $("#d_F50_EnglishName").hide();
-                $("#d_F50_IdNo").show();
-                $("#d_F50_Tel").hide();
-                $("#d_F50_Address").hide();
+                $("#div_F50A").show();
+                $("#div_F50F").hide();
+                $("#div_F50K").hide();
                 break;
             case "Option F":
-                $("#d_F50_Account").hide();
-                $("#d_F50_EnglishName").show();
-                $("#d_F50_IdNo").show();
-                $("#d_F50_Tel").show();
-                $("#d_F50_Address").show();
+                $("#div_F50A").hide();
+                $("#div_F50F").show();
+                $("#div_F50K").hide();
                 break;
             case "Option K":
-                $("#d_F50_Account").show();
-                $("#d_F50_EnglishName").show();
-                $("#d_F50_IdNo").hide();
-                $("#d_F50_Tel").hide();
-                $("#d_F50_Address").show();
+                $("#div_F50A").hide();
+                $("#div_F50F").hide();
+                $("#div_F50K").show();
                 break;
         }
     }
+    function F52_changed() {
+        var F52_ddl = $("#F52_ddl").val();
+        switch (F52_ddl) {
+            case "Option A":
+                $("#div_F52A").show();
+                $("#div_F52D").hide();
+                break;
+            case "Option D":
+                $("#div_F52A").hide();
+                $("#div_F52D").show();
+                break;
+        }
+    }
+    function F53_changed() {
+        var F53_ddl = $("#F53_ddl").val();
+        switch (F53_ddl) {
+            case "Option A":
+                $("#div_F53A").show();
+                $("#div_F53B").hide();
+                $("#div_F53D").hide();
+                break;
+            case "Option B":
+                $("#div_F53A").hide();
+                $("#div_F53B").show();
+                $("#div_F53D").hide();
+                break;
+            case "Option D":
+                $("#div_F53A").hide();
+                $("#div_F53B").hide();
+                $("#div_F53D").show();
+                break;
+        }
+    }
+    function F54_changed() {
+        var F54_ddl = $("#F54_ddl").val();
+        switch (F54_ddl) {
+            case "Option A":
+                $("#div_F54A").show();
+                $("#div_F54B").hide();
+                $("#div_F54D").hide();
+                break;
+            case "Option B":
+                $("#div_F54A").hide();
+                $("#div_F54B").show();
+                $("#div_F54D").hide();
+                break;
+            case "Option D":
+                $("#div_F54A").hide();
+                $("#div_F54B").hide();
+                $("#div_F54D").show();
+                break;
+        }
+    }
+    function mandatoryonly_changed(e) {
+        var checked = $(e).is(":checked");
+
+        if (checked == true) {
+            $("#div_F20_M").show();
+            $("#div_F13C_O").hide();
+            $("#div_F23B_M").show();
+            $("#div_F23E_O").hide();
+            $("#div_F32A_M").show();
+            $("#div_F33B_O").hide();
+            $("#div_F36_O").hide();
+            $("#panel_F50a_M").show();
+            $("#div_F51A_O").hide();
+            $("#panel_F52a_O").hide();
+            $("#panel_F53a_O").hide();
+            $("#panel_F54a_O").hide();
+        } else {
+            $("#div_F20_M").show();
+            $("#div_F13C_O").show();
+            $("#div_F23B_M").show();
+            $("#div_F23E_O").show();
+            $("#div_F32A_M").show();
+            $("#div_F33B_O").show();
+            $("#div_F36_O").show();
+            $("#panel_F50a_M").show();
+            $("#div_F51A_O").show();
+            $("#panel_F52a_O").show();
+            $("#panel_F53a_O").show();
+            $("#panel_F54a_O").show();
+        }
+    }
+
         
-    //});
+    
 </script>
 <h2>匯出匯款申請書 Application for outward remittance</h2>
 
@@ -43,241 +121,261 @@
 
     <div class="form-horizontal">
         <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">            
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })        
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="cb_mandatoryonly" onclick="mandatoryonly_changed(($(this)))">
+            <label class="form-check-label" for="exampleCheck1">Mandatory Fields Only</label>
+        </div>
+        @*-----F20-----*@
+        <div class="form-group" id="div_F20_M">
+            <label class="control-label col-md-2">F20 Sender's Reference</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.F20, new
+                {
+                    @class = "form-control",
+                    @id = "F20"
+           })
+            </div>
+        </div>
+        @*-----F13C-----*@
+        <div class="form-group" id="div_F13C_O">            
+            <label class="control-label col-md-2">F13C Time Indication</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.F13C, new
+                {
+                    @class = "form-control",
+                    @id = "F13C"
+           })
+            </div>
+        </div>
+        @*-----F23B-----*@
+        <div class="form-group" id="div_F23B_M">            
+            <label class="control-label col-md-2">F23B Bank Operation Code</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.F23B, new
+                {
+                    @class = "form-control",
+                    @id = "F23B"
+           })
+            </div>
+        </div>
+        @*-----F23E-----*@
+        <div class="form-group" id="div_F23E_O">            
+            <label class="control-label col-md-2">F23E Instruction Code</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.F23E, new
+                {
+                    @class = "form-control",
+                    @id = "F23E"
+           })
+            </div>
+        </div>
+        @*-----F26T-----*@
+        <div class="form-group" id="div_F26T_O">            
+            <label class="control-label col-md-2">F26T Transaction Type Code</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.F26T, new
+                {
+                    @class = "form-control",
+                    @id = "F26T"
+           })
+            </div>
+        </div>
+        @*-----F32A-----*@
+        <div class="form-group" id="div_F32A_M">            
             <label class="control-label col-md-2">F32A Value Date/Currency/Interbank Settled Amount</label>
             <div class="col-md-10">
                 @Html.TextBoxFor(model => model.F32A, new
                 {
                     @class = "form-control",
-                    @id = "F32A",
-               @onkeyup = "return ValidateCNWord($(this),value);",
-               @onblur = "return ValidateCNWord($(this),value);"
+                    @id = "F32A"
            })
             </div>
         </div>
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <p>F50 Ordering Customer</p>
-                @Html.DropDownListFor(m => m.F50A, (IEnumerable<SelectListItem>)ViewBag.SelectF50, new { @class = "form-control", @id = "F50A", onchange="F50A_changed()" })
-            </div>
-            
-            <br />
-            @*<div class="form-group">
-                <label class="control-label col-md-2">ChineseName</label>
-                <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.F50_ChineseName, new
-                    {
-                        @class = "form-control",
-                        @id = "F50_ChineseName",
-                   @onkeyup = "return ValidateCNWord($(this),value);",
-                   @onblur = "return ValidateCNWord($(this),value);"
-               })
-                </div>
-            </div>*@
-
-            <div class="form-group" id="d_F50_Account">
-                <label class="control-label col-md-2">Account</label>
-                <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.F50_Account, new
-                    {
-                        @class = "form-control",
-                        @id = "F50_Account",
-                   @onkeyup = "return ValidateCNWord($(this),value);",
-                   @onblur = "return ValidateCNWord($(this),value);"
-               })
-                </div>
-            </div>
-
-            <div class="form-group" id="d_EnglishName">
-                <label class="control-label col-md-2">EnglishName</label>
-                <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.F50_EnglishName, new
-                    {
-                        @class = "form-control",
-                        @id = "F50_EnglishName",
-                   @onkeyup = "return ValidateCNWord($(this),value);",
-                   @onblur = "return ValidateCNWord($(this),value);"
-               })
-                </div>
-            </div>
-
-            <div class="form-group" id="d_F50_IdNo">
-                <label class="control-label col-md-2">ID No.</label>
-                <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.F50_IdNo, new
-                    {
-                        @class = "form-control",
-                        @id = "F50_IdNo",
-                   @onkeyup = "return ValidateCNWord($(this),value);",
-                   @onblur = "return ValidateCNWord($(this),value);"
-               })
-                </div>
-            </div>
-
-            <div class="form-group" id="d_F50_Tel">
-                <label class="control-label col-md-2">Number</label>
-                <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.F50_Tel, new
-                    {
-                        @class = "form-control",
-                        @id = "F50_Tel",
-                   @onkeyup = "return ValidateCNWord($(this),value);",
-                   @onblur = "return ValidateCNWord($(this),value);"
-               })
-                </div>
-            </div>
-
-            <div class="form-group" id="d_F50_Address">
-                <label class="control-label col-md-2">Address</label>
-                <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.F50_Address, new
-                    {
-                        @class = "form-control",
-                        @id = "F50_Address",
-                   @onkeyup = "return ValidateCNWord($(this),value);",
-                   @onblur = "return ValidateCNWord($(this),value);"
-               })
-                </div>
+        @*-----F33B-----*@
+        <div class="form-group" id="div_F33B_O">            
+            <label class="control-label col-md-2">F33B Currency/Instructed Amount</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.F33B, new
+                {
+                    @class = "form-control",
+                    @id = "F33B"
+           })
             </div>
         </div>
-        
-        <div class="panel panel-primary">
-            <div class="panel-heading">F59 Beneficiary Customer</div>
-            <br />
-            <div class="form-group">
-                <label class="control-label col-md-2">Account</label>
-                <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.F59_AccNo_IbanCode, new
-                    {
-                        @class = "form-control",
-                        @id = "F59_AccNo_IbanCode",
-                   @onkeyup = "return ValidateCNWord($(this),value);",
-                   @onblur = "return ValidateCNWord($(this),value);"
-               })
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="control-label col-md-2">EnglishName</label>
-                <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.F59_EnglishName, new
-                    {
-                        @class = "form-control",
-                        @id = "F59_EnglishName",
-                   @onkeyup = "return ValidateCNWord($(this),value);",
-                   @onblur = "return ValidateCNWord($(this),value);"
-               })
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="control-label col-md-2">Address</label>
-                <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.F59_Address, new
-                    {
-                        @class = "form-control",
-                        @id = "F59_Address",
-                   @onkeyup = "return ValidateCNWord($(this),value);",
-                   @onblur = "return ValidateCNWord($(this),value);"
-               })
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="control-label col-md-2">Number</label>
-                <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.F59_Tel, new
-                    {
-                        @class = "form-control",
-                        @id = "F59_Tel",
-                   @onkeyup = "return ValidateCNWord($(this),value);",
-                   @onblur = "return ValidateCNWord($(this),value);"
-               })
-                </div>
-            </div>
-        </div>
-        
-        <div class="panel panel-primary">
-            <div class="panel-heading">F57 Account With Institution</div>
-            <br />
-            <div class="form-group">
-                <label class="control-label col-md-2">Party Identifier</label>
-                <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.F57_BankNameBranchInformation, new
-                    {
-                        @class = "form-control",
-                        @id = "F57_BankNameBranchInformation",
-                   @onkeyup = "return ValidateCNWord($(this),value);",
-                   @onblur = "return ValidateCNWord($(this),value);"
-               })
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="control-label col-md-2">Identifier Code</label>
-                <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.F57_SwiftCode_CnapsNo_AbaNo, new
-                    {
-                        @class = "form-control",
-                        @id = "F57_SwiftCode_CnapsNo_AbaNo",
-                   @onkeyup = "return ValidateCNWord($(this),value);",
-                   @onblur = "return ValidateCNWord($(this),value);"
-               })
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="control-label col-md-2">Address</label>
-                <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.F57_Address, new
-                    {
-                        @class = "form-control",
-                        @id = "F57_Address",
-                   @onkeyup = "return ValidateCNWord($(this),value);",
-                   @onblur = "return ValidateCNWord($(this),value);"
-               })
-                </div>
+        @*-----F36-----*@
+        <div class="form-group" id="div_F36_O">            
+            <label class="control-label col-md-2">F36 Exchange Rate</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.F36, new
+                {
+                    @class = "form-control",
+                    @id = "F36"
+           })
             </div>
         </div>        
+        @*-----F50a-----*@
+        <div class="panel panel-primary" id="panel_F50a_M">
+            <div class="panel-heading">
+                <p>F50a Ordering Customer</p>
+                @Html.DropDownListFor(m => m.F50A, (IEnumerable<SelectListItem>)ViewBag.SelectF50, new { @class = "form-control", @id = "F50_ddl", onchange = "F50_changed()" })
+            </div>
 
-        <div class="form-group">            
-            <label class="control-label col-md-2">F56 Intermediary Institution</label>
+            <br />
+            <div class="form-group" id="div_F50A">
+                <label class="control-label col-md-2">F50A Ordering Customer</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.F50A, new
+                    {
+                        @class = "form-control",
+                        @id = "F50A"
+               })
+                </div>
+            </div>
+
+            <div class="form-group" id="div_F50F" style="display:none;">
+                <label class="control-label col-md-2">F50F Ordering Customer</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.F50F, new
+                    {
+                        @class = "form-control",
+                        @id = "F50F"
+               })
+                </div>
+            </div>
+
+            <div class="form-group" id="div_F50K" style="display: none;">
+                <label class="control-label col-md-2">F50K Ordering Customer</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.F50K, new
+                    {
+                        @class = "form-control",
+                        @id = "F50K"
+               })
+                </div>
+            </div>
+        </div>
+        @*-----F51A-----*@
+        <div class="form-group" id="div_F51A_O">
+            <label class="control-label col-md-2">F51A Sending Institution</label>
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.F56A, new
+                @Html.TextBoxFor(model => model.F51A, new
                 {
                     @class = "form-control",
-                    @id = "F56A",
-               @onkeyup = "return ValidateCNWord($(this),value);",
-               @onblur = "return ValidateCNWord($(this),value);"
+                    @id = "F51A"
            })
             </div>
         </div>
+        @*-----F52a-----*@
+        <div class="panel panel-primary" id="panel_F52a_O">
+            <div class="panel-heading">
+                <p>F52a Ordering Institution</p>
+                @Html.DropDownListFor(m => m.F50A, (IEnumerable<SelectListItem>)ViewBag.SelectF52, new { @class = "form-control", @id = "F52_ddl", onchange = "F52_changed()" })
+            </div>
 
-        <div class="form-group">            
-            <label class="control-label col-md-2">F70 Remittance Information</label>
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => model.F70, new
-                {
-                    @class = "form-control",
-                    @id = "F70",
-               @onkeyup = "return ValidateCNWord($(this),value);",
-               @onblur = "return ValidateCNWord($(this),value);"
-           })
+            <br />
+            <div class="form-group" id="div_F52A">
+                <label class="control-label col-md-2">F52A Ordering Institution</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.F52A, new
+                    {
+                        @class = "form-control",
+                        @id = "F52A"
+               })
+                </div>
+            </div>
+
+            <div class="form-group" id="div_F52D" style="display:none;">
+                <label class="control-label col-md-2">F52D Ordering Institution</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.F52D, new
+                    {
+                        @class = "form-control",
+                        @id = "F52D"
+               })
+                </div>
             </div>
         </div>
+        @*-----F53a-----*@
+        <div class="panel panel-primary" id="panel_F53a_O">
+            <div class="panel-heading">
+                <p>F53a Sender's Correspondent</p>
+                @Html.DropDownListFor(m => m.F50A, (IEnumerable<SelectListItem>)ViewBag.SelectF53, new { @class = "form-control", @id = "F53_ddl", onchange = "F53_changed()" })
+            </div>
 
-        <div class="form-group">            
-            <label class="control-label col-md-2">F71 Details of Charges</label>
-            <div class="col-md-10">
-                @Html.DropDownListFor(m => m.F71A, (IEnumerable<SelectListItem>)ViewBag.SelectCharges, new { @class = "form-control", @id = "F71A" })
+            <br />
+            <div class="form-group" id="div_F53A">
+                <label class="control-label col-md-2">F53A Sender's Correspondent</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.F53A, new
+                    {
+                        @class = "form-control",
+                        @id = "F53A"
+               })
+                </div>
+            </div>
+
+            <div class="form-group" id="div_F53B" style="display:none;">
+                <label class="control-label col-md-2">F53B Sender's Correspondent</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.F53B, new
+                    {
+                        @class = "form-control",
+                        @id = "F53B"
+               })
+                </div>
+            </div>
+
+            <div class="form-group" id="div_F53D" style="display:none;">
+                <label class="control-label col-md-2">F53D Sender's Correspondent</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.F53D, new
+                    {
+                        @class = "form-control",
+                        @id = "F53D"
+               })
+                </div>
             </div>
         </div>
+        @*-----F54a-----*@
+        <div class="panel panel-primary" id="panel_F54a_O">
+            <div class="panel-heading">
+                <p>F54a Receiver's Correspondent</p>
+                @Html.DropDownListFor(m => m.F50A, (IEnumerable<SelectListItem>)ViewBag.SelectF54, new { @class = "form-control", @id = "F54_ddl", onchange = "F54_changed()" })
+            </div>
 
-        <div class="form-group">            
-            <label class="control-label col-md-2">Payment Method</label>
-            <div class="col-md-10">
-                @Html.DropDownListFor(m => m.PaymentMethod, (IEnumerable<SelectListItem>)ViewBag.SelectPayment, new { @class = "form-control", @id = "PaymentMethod" })
+            <br />
+            <div class="form-group" id="div_F54A">
+                <label class="control-label col-md-2">F54A Receiver's Correspondent</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.F54A, new
+                    {
+                        @class = "form-control",
+                        @id = "F54A"
+               })
+                </div>
+            </div>
+
+            <div class="form-group" id="div_F54B" style="display:none;">
+                <label class="control-label col-md-2">F54B Receiver's Correspondent</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.F54B, new
+                    {
+                        @class = "form-control",
+                        @id = "F54B"
+               })
+                </div>
+            </div>
+
+            <div class="form-group" id="div_F54D" style="display:none;">
+                <label class="control-label col-md-2">F54D Receiver's Correspondent</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.F54D, new
+                    {
+                        @class = "form-control",
+                        @id = "F54D"
+               })
+                </div>
             </div>
         </div>
 
