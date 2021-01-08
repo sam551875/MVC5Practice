@@ -9,19 +9,25 @@
         var F50_ddl = $("#F50_ddl").val();
         switch (F50_ddl) {
             case "Option A":
-                $("#div_F50A").show();
-                $("#div_F50F").hide();
-                $("#div_F50K").hide();
+                $("#div_F50a_Account").show();
+                $("#div_F50a_IdentifierCode").show();
+                $("#div_F50a_PartyIdentifier").hide();
+                $("#div_F50a_Name").hide();
+                $("#div_F50a_Address").hide();
                 break;
             case "Option F":
-                $("#div_F50A").hide();
-                $("#div_F50F").show();
-                $("#div_F50K").hide();
+                $("#div_F50a_Account").hide();
+                $("#div_F50a_IdentifierCode").hide();
+                $("#div_F50a_PartyIdentifier").show();
+                $("#div_F50a_Name").show();
+                $("#div_F50a_Address").show();
                 break;
             case "Option K":
-                $("#div_F50A").hide();
-                $("#div_F50F").hide();
-                $("#div_F50K").show();
+                $("#div_F50a_Account").show();
+                $("#div_F50a_IdentifierCode").hide();
+                $("#div_F50a_PartyIdentifier").hide();
+                $("#div_F50a_Name").show();
+                $("#div_F50a_Address").show();
                 break;
         }
     }
@@ -29,12 +35,16 @@
         var F52_ddl = $("#F52_ddl").val();
         switch (F52_ddl) {
             case "Option A":
-                $("#div_F52A").show();
-                $("#div_F52D").hide();
+                $("#div_F52a_PartyIdentifier").show();
+                $("#div_F52a_IdentifierCode").show();
+                $("#div_F52a_Name").hide();
+                $("#div_F52a_Address").hide();
                 break;
             case "Option D":
-                $("#div_F52A").hide();
-                $("#div_F52D").show();
+                $("#div_F52a_PartyIdentifier").show();
+                $("#div_F52a_IdentifierCode").hide();                
+                $("#div_F52a_Name").show();
+                $("#div_F52a_Address").show();
                 break;
         }
     }
@@ -42,19 +52,25 @@
         var F53_ddl = $("#F53_ddl").val();
         switch (F53_ddl) {
             case "Option A":
-                $("#div_F53A").show();
-                $("#div_F53B").hide();
-                $("#div_F53D").hide();
+                $("#div_F53a_PartyIdentifier").show();
+                $("#div_F53a_IdentifierCode").show();
+                $("#div_F53a_Location").hide();
+                $("#div_F53a_Name").hide();
+                $("#div_F53a_Address").hide();
                 break;
             case "Option B":
-                $("#div_F53A").hide();
-                $("#div_F53B").show();
-                $("#div_F53D").hide();
+                $("#div_F53a_PartyIdentifier").show();
+                $("#div_F53a_IdentifierCode").hide();
+                $("#div_F53a_Location").show();
+                $("#div_F53a_Name").hide();
+                $("#div_F53a_Address").hide();
                 break;
             case "Option D":
-                $("#div_F53A").hide();
-                $("#div_F53B").hide();
-                $("#div_F53D").show();
+                $("#div_F53a_PartyIdentifier").show();
+                $("#div_F53a_IdentifierCode").hide();
+                $("#div_F53a_Location").hide();
+                $("#div_F53a_Name").show();
+                $("#div_F53a_Address").show();
                 break;
         }
     }
@@ -62,19 +78,25 @@
         var F54_ddl = $("#F54_ddl").val();
         switch (F54_ddl) {
             case "Option A":
-                $("#div_F54A").show();
-                $("#div_F54B").hide();
-                $("#div_F54D").hide();
+                $("#div_F54a_PartyIdentifier").show();
+                $("#div_F54a_IdentifierCode").show();
+                $("#div_F54a_Location").hide();
+                $("#div_F54a_Name").hide();
+                $("#div_F54a_Address").hide();
                 break;
             case "Option B":
-                $("#div_F54A").hide();
-                $("#div_F54B").show();
-                $("#div_F54D").hide();
+                $("#div_F54a_PartyIdentifier").show();
+                $("#div_F54a_IdentifierCode").hide();
+                $("#div_F54a_Location").show();
+                $("#div_F54a_Name").hide();
+                $("#div_F54a_Address").hide();
                 break;
             case "Option D":
-                $("#div_F54A").hide();
-                $("#div_F54B").hide();
-                $("#div_F54D").show();
+                $("#div_F54a_PartyIdentifier").show();
+                $("#div_F54a_IdentifierCode").hide();
+                $("#div_F54a_Location").hide();
+                $("#div_F54a_Name").show();
+                $("#div_F54a_Address").show();
                 break;
         }
     }
@@ -223,36 +245,35 @@
             </div>
 
             <br />
-            <div class="form-group" id="div_F50A">
-                <label class="control-label col-md-2">F50A Ordering Customer</label>
+            <div class="form-group" id="div_F50a_Account">
+                <label class="control-label col-md-2">Account</label>
                 <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.F50A, new
-                    {
-                        @class = "form-control",
-                        @id = "F50A"
-               })
+                    <textarea class="form-control" id="F50a_Account" style="resize: none;"></textarea>
                 </div>
             </div>
-
-            <div class="form-group" id="div_F50F" style="display:none;">
-                <label class="control-label col-md-2">F50F Ordering Customer</label>
+            <div class="form-group" id="div_F50a_IdentifierCode">
+                <label class="control-label col-md-2">Identifier Code</label>
                 <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.F50F, new
-                    {
-                        @class = "form-control",
-                        @id = "F50F"
-               })
+                    <textarea class="form-control" id="F50a_IdentifierCode" style="resize: none;"></textarea>
+
                 </div>
             </div>
-
-            <div class="form-group" id="div_F50K" style="display: none;">
-                <label class="control-label col-md-2">F50K Ordering Customer</label>
+            <div class="form-group" id="div_F50a_PartyIdentifier" style="display:none;">
+                <label class="control-label col-md-2">Party Identifier</label>
                 <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.F50K, new
-                    {
-                        @class = "form-control",
-                        @id = "F50K"
-               })
+                    <textarea class="form-control" id="F50a_PartyIdentifier" style="resize: none;"></textarea>
+                </div>
+            </div>
+            <div class="form-group" id="div_F50a_Name" style="display:none;">
+                <label class="control-label col-md-2">Name</label>
+                <div class="col-md-10">
+                    <textarea class="form-control" id="F50a_Name" style="resize: none;"></textarea>
+                </div>
+            </div>
+            <div class="form-group" id="div_F50a_Address" style="display:none;">
+                <label class="control-label col-md-2">Address</label>
+                <div class="col-md-10">
+                    <textarea class="form-control" id="F50a_Address" style="resize: none;"></textarea>
                 </div>
             </div>
         </div>
@@ -275,27 +296,31 @@
             </div>
 
             <br />
-            <div class="form-group" id="div_F52A">
-                <label class="control-label col-md-2">F52A Ordering Institution</label>
+            <div class="form-group" id="div_F52a_PartyIdentifier">
+                <label class="control-label col-md-2">Party Identifier</label>
                 <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.F52A, new
-                    {
-                        @class = "form-control",
-                        @id = "F52A"
-               })
+                    <textarea class="form-control" id="F52a_PartyIdentifier" style="resize: none;"></textarea>
                 </div>
             </div>
+            <div class="form-group" id="div_F52a_IdentifierCode">
+                <label class="control-label col-md-2">Identifier Code</label>
+                <div class="col-md-10">
+                    <textarea class="form-control" id="F52a_IdentifierCode" style="resize: none;"></textarea>
 
-            <div class="form-group" id="div_F52D" style="display:none;">
-                <label class="control-label col-md-2">F52D Ordering Institution</label>
+                </div>
+            </div>            
+            <div class="form-group" id="div_F52a_Name" style="display:none;">
+                <label class="control-label col-md-2">Name</label>
                 <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.F52D, new
-                    {
-                        @class = "form-control",
-                        @id = "F52D"
-               })
+                    <textarea class="form-control" id="F52a_Name" style="resize: none;"></textarea>
                 </div>
             </div>
+            <div class="form-group" id="div_F52a_Address" style="display:none;">
+                <label class="control-label col-md-2">Address</label>
+                <div class="col-md-10">
+                    <textarea class="form-control" id="F52a_Address" style="resize: none;"></textarea>
+                </div>
+            </div>            
         </div>
         @*-----F53a-----*@
         <div class="panel panel-primary" id="panel_F53a_O">
@@ -303,40 +328,41 @@
                 <p>F53a Sender's Correspondent</p>
                 @Html.DropDownListFor(m => m.F50A, (IEnumerable<SelectListItem>)ViewBag.SelectF53, new { @class = "form-control", @id = "F53_ddl", onchange = "F53_changed()" })
             </div>
-
             <br />
-            <div class="form-group" id="div_F53A">
-                <label class="control-label col-md-2">F53A Sender's Correspondent</label>
-                <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.F53A, new
-                    {
-                        @class = "form-control",
-                        @id = "F53A"
-               })
-                </div>
-            </div>
 
-            <div class="form-group" id="div_F53B" style="display:none;">
-                <label class="control-label col-md-2">F53B Sender's Correspondent</label>
+            <div class="form-group" id="div_F53a_PartyIdentifier">
+                <label class="control-label col-md-2">Party Identifier</label>
                 <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.F53B, new
-                    {
-                        @class = "form-control",
-                        @id = "F53B"
-               })
+                    <textarea class="form-control" id="F53a_PartyIdentifier" style="resize: none;"></textarea>
                 </div>
             </div>
+            <div class="form-group" id="div_F53a_IdentifierCode">
+                <label class="control-label col-md-2">Identifier Code</label>
+                <div class="col-md-10">
+                    <textarea class="form-control" id="F53a_IdentifierCode" style="resize: none;"></textarea>
 
-            <div class="form-group" id="div_F53D" style="display:none;">
-                <label class="control-label col-md-2">F53D Sender's Correspondent</label>
-                <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.F53D, new
-                    {
-                        @class = "form-control",
-                        @id = "F53D"
-               })
                 </div>
             </div>
+            <div class="form-group" id="div_F53a_Location" style="display:none;">
+                <label class="control-label col-md-2">Location</label>
+                <div class="col-md-10">
+                    <textarea class="form-control" id="F53a_Location" style="resize: none;"></textarea>
+
+                </div>
+            </div>
+            <div class="form-group" id="div_F53a_Name" style="display:none;">
+                <label class="control-label col-md-2">Name</label>
+                <div class="col-md-10">
+                    <textarea class="form-control" id="F53a_Name" style="resize: none;"></textarea>
+                </div>
+            </div>
+            <div class="form-group" id="div_F53a_Address" style="display:none;">
+                <label class="control-label col-md-2">Address</label>
+                <div class="col-md-10">
+                    <textarea class="form-control" id="F53a_Address" style="resize: none;"></textarea>
+                </div>
+            </div>  
+            
         </div>
         @*-----F54a-----*@
         <div class="panel panel-primary" id="panel_F54a_O">
@@ -346,36 +372,36 @@
             </div>
 
             <br />
-            <div class="form-group" id="div_F54A">
-                <label class="control-label col-md-2">F54A Receiver's Correspondent</label>
+            <div class="form-group" id="div_F54a_PartyIdentifier">
+                <label class="control-label col-md-2">Party Identifier</label>
                 <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.F54A, new
-                    {
-                        @class = "form-control",
-                        @id = "F54A"
-               })
+                    <textarea class="form-control" id="F54a_PartyIdentifier" style="resize: none;"></textarea>
                 </div>
             </div>
-
-            <div class="form-group" id="div_F54B" style="display:none;">
-                <label class="control-label col-md-2">F54B Receiver's Correspondent</label>
+            <div class="form-group" id="div_F54a_IdentifierCode">
+                <label class="control-label col-md-2">Identifier Code</label>
                 <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.F54B, new
-                    {
-                        @class = "form-control",
-                        @id = "F54B"
-               })
+                    <textarea class="form-control" id="F54a_IdentifierCode" style="resize: none;"></textarea>
+
                 </div>
             </div>
-
-            <div class="form-group" id="div_F54D" style="display:none;">
-                <label class="control-label col-md-2">F54D Receiver's Correspondent</label>
+            <div class="form-group" id="div_F54a_Location" style="display:none;">
+                <label class="control-label col-md-2">Location</label>
                 <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.F54D, new
-                    {
-                        @class = "form-control",
-                        @id = "F54D"
-               })
+                    <textarea class="form-control" id="F54a_Location" style="resize: none;"></textarea>
+
+                </div>
+            </div>
+            <div class="form-group" id="div_F54a_Name" style="display:none;">
+                <label class="control-label col-md-2">Name</label>
+                <div class="col-md-10">
+                    <textarea class="form-control" id="F54a_Name" style="resize: none;"></textarea>
+                </div>
+            </div>
+            <div class="form-group" id="div_F54a_Address" style="display:none;">
+                <label class="control-label col-md-2">Address</label>
+                <div class="col-md-10">
+                    <textarea class="form-control" id="F54a_Address" style="resize: none;"></textarea>
                 </div>
             </div>
         </div>
