@@ -110,8 +110,8 @@
         }
     }
 
-        
-    
+
+
 </script>
 <h2>匯出匯款申請書 Application for outward remittance</h2>
 
@@ -121,11 +121,12 @@
 
     <div class="form-horizontal">
         <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })        
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-check">
             <input type="checkbox" class="form-check-input" id="cb_mandatoryonly" onclick="mandatoryonly_changed(($(this)))">
-            <label class="form-check-label" for="exampleCheck1">Mandatory Fields Only</label>
+            <label class="form-check-label" for="exampleCheck1" style="font-size:medium; font-weight:bold;">Mandatory Fields Only</label>
         </div>
+        <br />
         @*-----F20-----*@
         <div class="form-group" id="div_F20_M">
             <label class="control-label col-md-2">F20 Sender's Reference</label>
@@ -138,7 +139,7 @@
             </div>
         </div>
         @*-----F13C-----*@
-        <div class="form-group" id="div_F13C_O">            
+        <div class="form-group" id="div_F13C_O">
             <label class="control-label col-md-2">F13C Time Indication</label>
             <div class="col-md-10">
                 @Html.TextBoxFor(model => model.F13C, new
@@ -149,7 +150,7 @@
             </div>
         </div>
         @*-----F23B-----*@
-        <div class="form-group" id="div_F23B_M">            
+        <div class="form-group" id="div_F23B_M">
             <label class="control-label col-md-2">F23B Bank Operation Code</label>
             <div class="col-md-10">
                 @Html.TextBoxFor(model => model.F23B, new
@@ -160,7 +161,7 @@
             </div>
         </div>
         @*-----F23E-----*@
-        <div class="form-group" id="div_F23E_O">            
+        <div class="form-group" id="div_F23E_O">
             <label class="control-label col-md-2">F23E Instruction Code</label>
             <div class="col-md-10">
                 @Html.TextBoxFor(model => model.F23E, new
@@ -171,7 +172,7 @@
             </div>
         </div>
         @*-----F26T-----*@
-        <div class="form-group" id="div_F26T_O">            
+        <div class="form-group" id="div_F26T_O">
             <label class="control-label col-md-2">F26T Transaction Type Code</label>
             <div class="col-md-10">
                 @Html.TextBoxFor(model => model.F26T, new
@@ -182,7 +183,7 @@
             </div>
         </div>
         @*-----F32A-----*@
-        <div class="form-group" id="div_F32A_M">            
+        <div class="form-group" id="div_F32A_M">
             <label class="control-label col-md-2">F32A Value Date/Currency/Interbank Settled Amount</label>
             <div class="col-md-10">
                 @Html.TextBoxFor(model => model.F32A, new
@@ -193,7 +194,7 @@
             </div>
         </div>
         @*-----F33B-----*@
-        <div class="form-group" id="div_F33B_O">            
+        <div class="form-group" id="div_F33B_O">
             <label class="control-label col-md-2">F33B Currency/Instructed Amount</label>
             <div class="col-md-10">
                 @Html.TextBoxFor(model => model.F33B, new
@@ -204,7 +205,7 @@
             </div>
         </div>
         @*-----F36-----*@
-        <div class="form-group" id="div_F36_O">            
+        <div class="form-group" id="div_F36_O">
             <label class="control-label col-md-2">F36 Exchange Rate</label>
             <div class="col-md-10">
                 @Html.TextBoxFor(model => model.F36, new
@@ -213,7 +214,7 @@
                     @id = "F36"
            })
             </div>
-        </div>        
+        </div>
         @*-----F50a-----*@
         <div class="panel panel-primary" id="panel_F50a_M">
             <div class="panel-heading">
